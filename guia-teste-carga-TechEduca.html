@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+ 
+<html lang="pt-BR">
+
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"> <title>Guia Prático — Seu Primeiro Teste de Carga no TechEduca</title> 
+<style>
+ :root{--bg:#05132c;--card:#0b1f42;--or:#ff8a1f;--wh:#fff;--mut:#c6d0e3} *{box-sizing:border-box}html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--wh);font:17px/1.65 system-ui,Segoe UI,Roboto,sans-serif} #bar{position:fixed;top:0;left:0;height:4px;background:var(--or);width:0;z-index:20} nav{position:fixed;top:0;left:0;bottom:0;width:260px;padding:28px 18px;overflow:auto;background:#030d20;border-right:1px solid #1b3366} nav b{color:var(--or);display:block;margin-bottom:14px;letter-spacing:.5px} nav a{display:block;color:var(--mut);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:14px} nav a.on,nav a:hover{background:#12295a;color:var(--or)} main{margin-left:260px;padding:0 6vw 80px;max-width:1000px} header{padding:80px 0 40px} h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 16px}h1 span,h2 em,.or{color:var(--or);font-style:normal} .lead{color:var(--mut);font-size:20px} .pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px} .pills div{background:var(--card);border:1px solid var(--or);border-radius:40px;padding:10px 20px;font-weight:600} section{padding:36px 0;border-top:1px solid #1b3366} h2{font-size:28px;margin:0 0 14px}h2 .n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--or);color:var(--bg);margin-right:12px;font-size:20px} p,li{color:#e8edf7} blockquote{margin:16px 0;padding:14px 20px;border-left:4px solid var(--or);background:var(--card);border-radius:0 12px 12px 0;color:var(--wh)} code,pre{font-family:ui-monospace,Consolas,monospace} pre{background:#020a1a;border:1px solid #1b3366;color:var(--or);padding:14px 18px;border-radius:12px;overflow:auto;position:relative} button.cp{position:absolute;right:8px;top:8px;background:var(--or);color:var(--bg);border:0;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:700} a.btn{display:inline-block;background:var(--or);color:var(--bg);padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:700;margin:6px 8px 6px 0} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0} .card{background:var(--card);border:1px solid #1b3366;border-radius:14px;padding:16px;transition:.2s} .card:hover{transform:translateY(-4px);border-color:var(--or)}.card h4{margin:0 0 6px;color:var(--or)} .card.star{border-color:var(--or)} table{width:100%;border-collapse:collapse;margin:16px 0}th{color:var(--or);text-align:left}td,th{padding:10px;border-bottom:1px solid #1b3366} .sim{background:var(--card);border:1px solid var(--or);border-radius:16px;padding:20px;margin:16px 0} input[type=range]{width:100%;accent-color:var(--or)} .dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:30px}.dots i{width:22px;height:22px;border-radius:50%;background:var(--or);animation:p 1s infinite alternate} @keyframes p{to{opacity:.4;transform:scale(.8)}} label.ck{display:flex;gap:10px;margin:6px 0;cursor:pointer}label.ck input{accent-color:var(--or);width:20px;height:20px} details{background:var(--card);border-radius:12px;padding:12px 18px;margin:8px 0;border:1px solid #1b3366}summary{cursor:pointer;color:var(--or);font-weight:700} .warn{background:#2a1a05;border:1px solid var(--or);padding:12px 18px;border-radius:12px} @media(max-width:860px){nav{display:none}main{margin-left:0}} 
+ h3{font-size:21px;margin:24px 0 10px;color:var(--wh)}
+</style>
+
+</head>
+
+<body>
+<div id="bar"></div>
+<nav id="nav"><b>QA ACADEMY · k6</b></nav>
+
+<main>
+<header>
+  <p class="or" style="font-weight:700;letter-spacing:2px">QA ACADEMY</p>
+  <h1>🚀 Guia Prático: seu primeiro <span>teste de carga</span> no TechEduca</h1>
+  <p class="lead">Você vai aprender, passo a passo, como simular vários usuários acessando uma aplicação ao mesmo tempo usando o <b>Grafana Cloud k6</b>, direto no navegador e sem instalar programas.</p>
+  <div class="pills">
+    <div>👥 <span class="or">5</span> usuários virtuais</div>
+    <div>⏱️ <span class="or">10</span> segundos</div>
+    <div>🌐 TechEduca</div>
+  </div>
+</header>
+
+<section id="s1">
+  <h2><span class="n">1</span>Crie sua conta no Grafana Cloud</h2>
+  <p>Cada aluno deverá utilizar <b>sua própria conta</b>. Clique no botão abaixo para acessar o Grafana e iniciar o cadastro.</p>
+  <a class="btn" href="https://grafana.com/auth/sign-up/" target="_blank" rel="noopener">Criar minha conta</a>
+  <p>Preencha os dados solicitados pelo Grafana e conclua o cadastro. Se for solicitado confirmar seu e-mail, faça a confirmação antes de continuar.</p>
+  <blockquote><b>Objetivo desta etapa:</b> ter uma conta própria e conseguir acessar o Grafana Cloud.</blockquote>
+</section>
+
+<section id="s2">
+  <h2><span class="n">2</span>Entre no Grafana Cloud</h2>
+  <p>Depois de criar a conta, faça login no Grafana Cloud.</p>
+  <a class="btn" href="https://grafana.com/auth/sign-in/" target="_blank" rel="noopener">Entrar no Grafana Cloud</a>
+  <p>Após o login, aguarde o painel principal carregar completamente.</p>
+  <blockquote>✅ <b>Você chegou ao lugar certo se:</b> estiver dentro do ambiente do Grafana Cloud e conseguir visualizar o menu de navegação.</blockquote>
+</section>
+
+<section id="s3">
+  <h2><span class="n">3</span>Encontre a área de testes</h2>
+  <p>No menu lateral do Grafana, procure a opção:</p>
+  <blockquote><b>Testing &amp; synthetics</b></blockquote>
+  <p>Clique nela para abrir as ferramentas relacionadas a testes.</p>
+</section>
+
+<section id="s4">
+  <h2><span class="n">4</span>Abra Performance</h2>
+  <p>Dentro de <b>Testing &amp; synthetics</b>, clique em:</p>
+  <blockquote><b>Performance</b></blockquote>
+  <p>É nessa área que trabalharemos com testes de desempenho e carga.</p>
+</section>
+
+<section id="s5">
+  <h2><span class="n">5</span>Entre em Projects</h2>
+  <p>Na área de Performance, localize e clique em:</p>
+  <blockquote><b>Projects</b></blockquote>
+  <p>Os projetos organizam os testes que você criar no Grafana Cloud k6.</p>
+</section>
+
+<section id="s6">
+  <h2><span class="n">6</span>Abra o projeto disponível</h2>
+  <p>Localize o projeto padrão da sua conta. Se aparecer <b>Default project</b>, clique nele.</p>
+  <blockquote>Testing &amp; synthetics → Performance → Projects → <span class="or"><b>Default project</b></span></blockquote>
+  <p>O nome ou a organização da tela pode variar um pouco conforme a conta, mas o objetivo é entrar no projeto onde o teste será criado.</p>
+</section>
+
+<section id="s7">
+  <h2><span class="n">7</span>Crie um novo teste</h2>
+  <p>Dentro do projeto, procure a opção para criar um novo teste e avance até chegar à tela:</p>
+  <blockquote><b>Create a test</b></blockquote>
+  <p>Não configure nada além disso ainda. Primeiro vamos escolher o tipo correto de teste.</p>
+</section>
+
+<section id="s8">
+  <h2><span class="n">8</span>Escolha Manual</h2>
+  <p>Na tela de criação, escolha como o teste será preparado:</p>
+  <div class="grid">
+    <div class="card star"><h4>✋ Manual ⭐</h4>Você configura o teste e entende cada etapa. <b>É esta opção que vamos usar.</b></div>
+    <div class="card"><h4>✨ AI-assisted</h4>A IA auxilia na criação do teste a partir de uma descrição. Não usaremos agora.</div>
+  </div>
+</section>
+
+<section id="s9">
+  <h2><span class="n">9</span>Selecione Web application</h2>
+  <p>Agora informe o tipo de sistema que será testado:</p>
+  <div class="grid">
+    <div class="card star"><h4>🌐 Web application ⭐</h4>Aplicações web. <b>Escolha esta opção para o TechEduca.</b></div>
+    <div class="card"><h4>🔗 HTTP API</h4>APIs HTTP, REST e GraphQL.</div>
+    <div class="card"><h4>🟣 Other protocols</h4>WebSocket, gRPC e outros protocolos.</div>
+  </div>
+</section>
+
+<section id="s10">
+  <h2><span class="n">10</span>Abra o Test Builder</h2>
+  <p>Nesta atividade, não usaremos <i>Record user flow</i> nem <i>Write a script</i>.</p>
+  <p>Role a página até encontrar:</p>
+  <blockquote><b>Can't find what you need? Try the Test Builder →</b></blockquote>
+  <p>Clique em <span class="or"><b>Try the Test Builder</b></span>.</p>
+</section>
+
+<section id="s11">
+  <h2><span class="n">11</span>Entenda o que vamos montar</h2>
+  <blockquote>Usuários virtuais → acessam uma publicação do TechEduca → durante um tempo definido → o Grafana registra o desempenho</blockquote>
+
+  <h3>🌐 Qual URL do TechEduca devo usar?</h3>
+  <div class="grid">
+    <div class="card star">
+      <h4>🥇 Preferencial: seu próprio TechEduca</h4>
+      <p>Se você já publicou o TechEduca no <b>GitHub Pages</b>, use a URL do <b>seu próprio projeto</b>.</p>
+      <p>Exemplo:</p>
+      <pre><code>https://seuusuario.github.io/TechEduca/</code></pre>
+      <p>Assim, você executará o teste sobre a sua própria publicação.</p>
+    </div>
+    <div class="card">
+      <h4>🥈 Alternativa: TechEduca do professor</h4>
+      <p>Se o seu projeto ainda não estiver publicado ou sua publicação estiver com problema, utilize o endereço disponibilizado pelo professor:</p>
+      <pre><button class="cp">Copiar</button><code>https://rickjordan20.github.io/TechEduca/</code></pre>
+      <a class="btn" href="https://rickjordan20.github.io/TechEduca/" target="_blank" rel="noopener">Abrir TechEduca do professor</a>
+    </div>
+  </div>
+
+  <p class="warn">⚠️ <b>Não use localhost:3000.</b> O teste será executado pelo Grafana Cloud. Por isso, a aplicação precisa estar publicada e acessível pela internet.</p>
+
+  <h3>✅ Antes de continuar</h3>
+  <p>Abra a URL que você escolheu em uma nova aba do navegador.</p>
+  <div class="sim">
+    <label class="ck"><input type="checkbox" id="urlcheck">O TechEduca abriu normalmente pela URL pública.</label>
+  </div>
+  <p>Se abriu corretamente, <b>copie essa URL</b>. Você deverá usar <b>o mesmo endereço</b> na configuração da requisição.</p>
+</section>
+
+<section id="s12">
+  <h2><span class="n">12</span>Crie a requisição</h2>
+  <p>Em <b>SCENARIOS → Requests</b>, crie a requisição que representará o acesso ao TechEduca.</p>
+  <p><b>NAME:</b></p>
+  <pre><button class="cp">Copiar</button><code>Acesso TechEduca</code></pre>
+  <p><b>REQUEST:</b> selecione <code class="or">GET</code>.</p>
+  <p><b>URL:</b> cole a URL do TechEduca que você escolheu e testou na etapa anterior.</p>
+  <blockquote>🥇 Use sua própria URL do GitHub Pages sempre que ela estiver funcionando. Use a URL do professor somente como alternativa.</blockquote>
+</section>
+
+<section id="s13">
+  <h2><span class="n">13</span>O que significa <em>GET</em>?</h2>
+  <p>O método <b>GET</b> solicita um recurso ao servidor. Neste teste, nosso usuário virtual está basicamente dizendo: <i>"TechEduca, envie esse recurso para mim."</i></p>
+  <p>Neste primeiro teste não faremos login, cadastro, alteração de dados ou envio de formulário. Vamos observar o acesso a um recurso público.</p>
+</section>
+
+<section id="s14">
+  <h2><span class="n">14</span>Deixe vazias as opções que não usaremos</h2>
+  <p>Para este primeiro teste, não precisamos configurar tudo o que aparece na requisição:</p>
+  <div class="grid">
+    <div class="card"><h4>Headers</h4>Deixe vazio.</div>
+    <div class="card"><h4>Query Params</h4>Deixe vazio.</div>
+    <div class="card"><h4>Variables</h4>Deixe vazio.</div>
+    <div class="card"><h4>Body</h4>Deixe vazio.</div>
+  </div>
+  <p>Mais adiante usaremos apenas <b class="or">Checks</b> para verificar a resposta.</p>
+</section>
+
+<section id="s15">
+  <h2><span class="n">15</span>Configure o cenário: Executor</h2>
+  <p>Em <b>SCENARIO_1 → Options</b>, encontre o campo <b>Executor</b>. Ele define <b>como a carga será gerada</b>.</p>
+  <div class="grid">
+    <div class="card star"><h4>Constant VUs ⭐</h4>Mantém uma quantidade fixa de usuários virtuais durante um período. <b>Usaremos este.</b></div>
+    <div class="card"><h4>Shared iterations</h4>Os usuários dividem um total de execuções.</div>
+    <div class="card"><h4>Per VU iterations</h4>Cada usuário executa uma quantidade definida de vezes.</div>
+    <div class="card"><h4>Ramping VUs</h4>A quantidade de usuários aumenta ou diminui gradualmente.</div>
+    <div class="card"><h4>Constant Arrival Rate</h4>Mantém uma taxa constante de novas execuções.</div>
+    <div class="card"><h4>Ramping Arrival Rate</h4>A taxa de execuções varia ao longo do teste.</div>
+  </div>
+</section>
+
+<section id="s16">
+  <h2><span class="n">16</span>Entenda o que são VUs</h2>
+  <p><b>VU = Virtual User</b>, ou usuário virtual. É um usuário simulado pelo k6 para gerar carga sobre a aplicação.</p>
+  <p>Mexa no controle abaixo para visualizar a quantidade de usuários:</p>
+  <div class="sim">
+    <label>Usuários virtuais: <b class="or" id="vv">5</b></label>
+    <input id="vr" type="range" min="1" max="20" value="5">
+    <div class="dots" id="dots"></div>
+  </div>
+  <p class="warn">⚠️ <b>5 VUs não significam apenas 5 requisições.</b> Durante o teste, os usuários virtuais podem repetir o cenário várias vezes.</p>
+</section>
+
+<section id="s17">
+  <h2><span class="n">17</span>Configure o primeiro cenário</h2>
+  <p>Agora preencha as opções do cenário:</p>
+  <table>
+    <tr><th>Campo</th><th>Valor</th></tr>
+    <tr><td>NAME</td><td><code>Cenario_5_usuarios</code></td></tr>
+    <tr><td>EXECUTOR</td><td>Constant VUs</td></tr>
+    <tr><td>START TIME</td><td><code>0s</code></td></tr>
+    <tr><td>VUS</td><td><code>5</code></td></tr>
+    <tr><td>DURATION</td><td><code>10s</code></td></tr>
+  </table>
+  <p>Se aparecer <b>Graceful Stop</b>, mantenha o valor padrão.</p>
+  <blockquote>"Mantenha 5 usuários virtuais acessando a URL escolhida do TechEduca durante 10 segundos."</blockquote>
+</section>
+
+<section id="s18">
+  <h2><span class="n">18</span>Adicione uma verificação (Check)</h2>
+  <p>Não basta observar se o site respondeu rápido. Também queremos verificar se a requisição foi respondida corretamente.</p>
+  <p>Em <b>Requests → Acesso TechEduca → CHECKS</b>, configure:</p>
+  <blockquote><b>HTTP status code</b> → <b>Equals</b> → <span class="or"><b>200</b></span></blockquote>
+  <p><b>200 OK</b> indica que a requisição foi atendida com sucesso. Assim conseguimos observar <span class="or">desempenho</span> e <span class="or">funcionamento</span>.</p>
+</section>
+
+<section id="s19">
+  <h2><span class="n">19</span>Faça a conferência final</h2>
+  <p>Antes de executar, confira item por item:</p>
+  <div class="sim" id="chk">
+    <label class="ck"><input type="checkbox">Estou usando uma URL pública do TechEduca que abre normalmente.</label>
+    <label class="ck"><input type="checkbox">Requisição: Acesso TechEduca · GET · URL escolhida.</label>
+    <label class="ck"><input type="checkbox">Cenário: Cenario_5_usuarios · Constant VUs · 0s.</label>
+    <label class="ck"><input type="checkbox">Carga: 5 VUs · Duration 10s.</label>
+    <label class="ck"><input type="checkbox">Check: HTTP status code Equals 200.</label>
+    <p id="ok" class="or" style="font-weight:700;margin:10px 0 0"></p>
+  </div>
+  <details><summary>🌎 Load zones</summary>Define de qual região a carga é gerada. Para este primeiro teste, mantenha a configuração padrão.</details>
+  <details><summary>📏 Thresholds</summary>São critérios de aceitação de desempenho. Exemplo: definir que uma porcentagem das respostas deve ficar abaixo de determinado tempo. Não configuraremos isso neste primeiro teste.</details>
+</section>
+
+<section id="s20">
+  <h2><span class="n">20</span>Execute o teste ▶️</h2>
+  <p class="warn">⚠️ <b>Espere a autorização do instrutor.</b> Depois, clique em <b>Create and run</b>, aguarde a execução terminar e não feche a página durante o teste.</p>
+  <p>Quando a execução terminar, não se preocupe em entender todos os números de uma vez. Vamos analisar o resultado <b>por partes</b>.</p>
+  <blockquote>Nosso objetivo não é decorar métricas. É aprender a responder: <b>o sistema continuou funcionando? Como ele se comportou com a carga aplicada?</b></blockquote>
+</section>
+
+<section id="s21">
+  <h2><span class="n">21</span>Comece confirmando a execução</h2>
+  <p>Antes de analisar qualquer gráfico, confira se o teste realmente terminou e se a carga executada corresponde ao que você configurou.</p>
+  <div class="grid">
+    <div class="card"><h4>✅ Status</h4>Verifique se a execução foi concluída.</div>
+    <div class="card"><h4>👥 VUs</h4>Confira quantos usuários virtuais foram utilizados.</div>
+    <div class="card"><h4>⏱️ Duração</h4>Confira por quanto tempo o cenário foi executado.</div>
+    <div class="card"><h4>🌎 Região</h4>Você também pode encontrar a região usada para gerar a carga.</div>
+  </div>
+  <blockquote>🧠 <b>Pergunta:</b> o teste executado corresponde ao teste que você planejou?</blockquote>
+</section>
+
+<section id="s22">
+  <h2><span class="n">22</span>Veja o Cloud Insights</h2>
+  <p>O <b>Cloud Insights</b> faz uma análise automática da execução e pode destacar boas práticas, problemas ou oportunidades de melhoria.</p>
+  <p>Os itens e as pontuações podem variar de um teste para outro. Por isso, <b>não tente apenas copiar os números de um colega</b>. Abra os tópicos disponíveis e leia o que o Grafana encontrou no seu teste.</p>
+  <div class="grid">
+    <div class="card"><h4>Best Practice</h4>Ajuda a identificar boas práticas e configurações que podem ser melhoradas.</div>
+    <div class="card"><h4>Reliability</h4>Pode indicar aspectos relacionados à confiabilidade da execução, como falhas HTTP.</div>
+    <div class="card"><h4>System</h4>Pode apresentar informações relacionadas à infraestrutura que gerou a carga.</div>
+  </div>
+  <p class="warn">⚠️ <b>Atenção:</b> uma pontuação alta em uma categoria não significa automaticamente que sua aplicação tem desempenho perfeito. Leia a explicação de cada item antes de concluir.</p>
+  <blockquote>🔎 <b>Faça assim:</b> abra cada tópico → leia <b>Explanation</b> → veja se existe alguma orientação em <b>Actions</b>.</blockquote>
+</section>
+
+<section id="s23">
+  <h2><span class="n">23</span>Analise os Checks</h2>
+  <p>Agora procure a área <b>CHECKS</b>. Ela mostra se as condições que você configurou foram atendidas durante o teste.</p>
+  <p>Neste exercício configuramos um Check para verificar se a resposta HTTP possui status <b>200</b>.</p>
+  <div class="grid">
+    <div class="card"><h4>Success Rate</h4>Percentual das verificações que passaram.</div>
+    <div class="card"><h4>Success Count</h4>Quantidade de verificações aprovadas.</div>
+    <div class="card"><h4>Fail Count</h4>Quantidade de verificações que falharam.</div>
+  </div>
+  <p class="warn">⚠️ <b>100% de Success Rate não significa “100% de desempenho”.</b> Significa que 100% das condições verificadas pelo Check foram atendidas.</p>
+  <blockquote>🧠 <b>Pergunte:</b> nossa condição foi atendida? Houve alguma falha? O resultado mudou quando aumentamos a carga?</blockquote>
+</section>
+
+<section id="s24">
+  <h2><span class="n">24</span>Abra a aba Analysis 📊</h2>
+  <p>Depois de conferir a execução, o Cloud Insights e os Checks, abra <b>ANALYSIS → Explore test results</b>.</p>
+  <p>Essa área permite escolher <b>o que você quer analisar</b> e <b>como os dados serão apresentados</b>.</p>
+  <div class="grid">
+    <div class="card star"><h4>1️⃣ Metrics</h4><b>O que eu quero analisar?</b><br>Ex.: tempo de resposta, falhas, VUs ou iterações.</div>
+    <div class="card star"><h4>2️⃣ Aggregation</h4><b>Como eu quero resumir esses dados?</b><br>Ex.: média, máximo, mediana ou percentil.</div>
+    <div class="card"><h4>3️⃣ Gráfico</h4><b>Como isso se comportou ao longo do teste?</b><br>Observe valores, mudanças, picos e tendências.</div>
+  </div>
+  <blockquote>💡 Pense sempre nesta ordem: <b>Metrics → Aggregation → Gráfico → Interpretação.</b></blockquote>
+</section>
+
+<section id="s25">
+  <h2><span class="n">25</span>Primeiro escolha a Metric</h2>
+  <p><b>Metric</b> é aquilo que você quer medir ou investigar. Antes de olhar o gráfico, pergunte: <b>“O que eu quero descobrir?”</b></p>
+  <div class="grid">
+    <div class="card"><h4>⏱️ Tempo de resposta</h4>Procure métricas HTTP relacionadas ao tempo de resposta quando quiser investigar rapidez ou lentidão.</div>
+    <div class="card"><h4>📨 Requisições</h4>Use métricas relacionadas às requisições para observar o ritmo em que elas ocorreram.</div>
+    <div class="card"><h4>❌ Falhas</h4>Use métricas de falha para investigar se as requisições começaram a apresentar problemas.</div>
+    <div class="card"><h4>👥 VUs</h4>Mostra a quantidade de usuários virtuais ativos durante a execução.</div>
+    <div class="card"><h4>🔁 Iterations</h4>Representa execuções concluídas do cenário de teste.</div>
+    <div class="card"><h4>⌛ Iteration Duration</h4>Representa o tempo necessário para uma execução completa do cenário.</div>
+    <div class="card"><h4>✅ Checks</h4>Permite observar informações relacionadas às verificações executadas no teste.</div>
+    <div class="card"><h4>👥 Max VUs</h4>Indica a quantidade máxima possível/configurada de usuários virtuais, quando disponível para análise.</div>
+  </div>
+  <p class="warn">⚠️ A lista de métricas pode variar conforme o tipo de teste e os dados registrados. Você não precisa usar todas.</p>
+</section>
+
+<section id="s26">
+  <h2><span class="n">26</span>Depois escolha a Aggregation</h2>
+  <p>Uma métrica pode possuir muitos valores durante uma execução. <b>Aggregation</b> define como esses valores serão resumidos ou apresentados.</p>
+  <blockquote>Metric responde: <b>“O que estou medindo?”</b><br>Aggregation responde: <b>“Como quero olhar para esses valores?”</b></blockquote>
+
+  <h3>⭐ Comece por estas</h3>
+  <table>
+    <tr><th>Aggregation</th><th>Significado simples</th><th>Quando usar</th></tr>
+    <tr><td><b>Min</b></td><td>Menor valor observado.</td><td>Para identificar o menor resultado registrado.</td></tr>
+    <tr><td><b>Max</b></td><td>Maior valor observado.</td><td>Para encontrar picos ou o maior valor.</td></tr>
+    <tr><td><b>Avg</b></td><td>Média dos valores.</td><td>Para obter uma visão geral do comportamento.</td></tr>
+    <tr><td><b>Median</b></td><td>Valor central dos dados ordenados.</td><td>Para observar um valor mais representativo do centro dos resultados.</td></tr>
+    <tr><td><b>Rate</b></td><td>Taxa em que determinado evento ocorre.</td><td>Quando a métrica faz sentido como taxa ao longo do tempo.</td></tr>
+    <tr><td><b>95th percentile</b></td><td>Valor abaixo do qual ficam aproximadamente 95% das observações.</td><td>Muito útil para observar tempos sem depender apenas da média.</td></tr>
+  </table>
+
+  <details>
+    <summary>🔎 Conheça outras Aggregations que podem aparecer</summary>
+    <p><b>Std. Dev.</b> — desvio-padrão; ajuda a observar o quanto os valores variam.</p>
+    <p><b>Increase</b> — mostra o aumento de uma métrica dentro do intervalo analisado.</p>
+    <p><b>Cum. Count</b> — contagem acumulada até determinado ponto.</p>
+    <p><b>Cum. Min</b> — menor valor acumulado observado até aquele ponto.</p>
+    <p><b>Cum. Max</b> — maior valor acumulado observado até aquele ponto.</p>
+    <p><b>Cum. Avg</b> — média acumulada até aquele ponto.</p>
+    <p><b>Cum. Std. Dev.</b> — desvio-padrão acumulado.</p>
+    <p>Outras opções podem aparecer conforme a métrica escolhida e a versão da ferramenta.</p>
+  </details>
+
+  <p class="warn">⚠️ Nem toda Aggregation faz sentido para toda Metric. Observe as opções oferecidas pelo Grafana para a métrica escolhida e pense no que você deseja descobrir.</p>
+</section>
+
+<section id="s27">
+  <h2><span class="n">27</span>Uma analogia simples: notas de uma turma</h2>
+  <p>Imagine que nossa <b>Metric</b> seja a nota de uma prova. Temos várias notas e queremos analisá-las de maneiras diferentes.</p>
+  <div class="grid">
+    <div class="card"><h4>Min</h4>Qual foi a menor nota?</div>
+    <div class="card"><h4>Max</h4>Qual foi a maior nota?</div>
+    <div class="card"><h4>Avg</h4>Qual foi a média da turma?</div>
+    <div class="card"><h4>Median</h4>Qual valor fica no centro quando organizamos as notas?</div>
+  </div>
+  <blockquote>Os dados são os mesmos. O que mudou foi <b>a maneira de resumir e observar esses dados</b>. No Analysis do k6 acontece a mesma ideia.</blockquote>
+</section>
+
+<section id="s28">
+  <h2><span class="n">28</span>Entenda os percentis sem complicação</h2>
+  <p>Além de Min, Max, Avg e Median, você pode encontrar opções como <b>75th, 90th, 95th e 99th percentile</b>.</p>
+  <p>Imagine os valores organizados do menor para o maior. Um percentil ajuda a indicar até qual valor ficou determinada porcentagem das observações.</p>
+  <table>
+    <tr><th>Percentil</th><th>Leitura simplificada</th></tr>
+    <tr><td>75th percentile (p75)</td><td>Aproximadamente 75% das observações ficaram até esse valor.</td></tr>
+    <tr><td>90th percentile (p90)</td><td>Aproximadamente 90% ficaram até esse valor.</td></tr>
+    <tr><td>95th percentile (p95)</td><td>Aproximadamente 95% ficaram até esse valor.</td></tr>
+    <tr><td>99th percentile (p99)</td><td>Aproximadamente 99% ficaram até esse valor.</td></tr>
+  </table>
+  <blockquote>💡 <b>Exemplo:</b> se o p95 de uma métrica de tempo de resposta fosse <b>500 ms</b>, interpretaríamos que aproximadamente 95% das observações consideradas ficaram em até 500 ms.</blockquote>
+  <p>Percentis são úteis porque uma média sozinha pode esconder uma pequena quantidade de respostas muito mais lentas.</p>
+</section>
+
+<section id="s29">
+  <h2><span class="n">29</span>Prática guiada: compare Avg × Max × p95</h2>
+  <p>Vamos observar a <b>mesma Metric</b> de três maneiras diferentes.</p>
+  <div class="sim">
+    <p><b>1.</b> Em <b>Metrics</b>, escolha uma métrica de tempo disponível no seu teste.</p>
+    <p><b>2.</b> Em <b>Aggregation</b>, selecione <b>Avg</b> e observe o gráfico.</p>
+    <p><b>3.</b> Sem trocar a Metric, altere a Aggregation para <b>Max</b>.</p>
+    <p><b>4.</b> Depois selecione <b>95th percentile</b>, se essa opção estiver disponível.</p>
+    <p><b>5.</b> Compare os três gráficos/resultados.</p>
+  </div>
+  <blockquote>🧠 <b>Pergunta:</b> por que Avg, Max e p95 podem mostrar valores diferentes se estamos analisando a mesma métrica?</blockquote>
+  <p>A resposta é simples: <b>os dados não mudaram; mudou a forma de resumir esses dados.</b></p>
+</section>
+
+<section id="s30">
+  <h2><span class="n">30</span>Como ler qualquer gráfico sem complicação</h2>
+  <p>Use este roteiro sempre que abrir um gráfico no Analysis:</p>
+  <div class="grid">
+    <div class="card"><h4>1️⃣ Metric</h4>O que está sendo medido?</div>
+    <div class="card"><h4>2️⃣ Aggregation</h4>Como esses valores estão sendo resumidos?</div>
+    <div class="card"><h4>3️⃣ Unidade</h4>Está em ms, req/s, VUs, porcentagem ou outra unidade?</div>
+    <div class="card"><h4>4️⃣ Tempo</h4>Como o valor se comportou durante a execução?</div>
+    <div class="card"><h4>5️⃣ Mudanças</h4>Existem picos, quedas, aumentos ou falhas?</div>
+    <div class="card"><h4>6️⃣ Comparação</h4>O que mudou quando a carga foi alterada?</div>
+  </div>
+  <blockquote>Não tente decorar gráficos. Pergunte: <b>“O que estou medindo, como estou olhando para os dados e o que eles estão me mostrando?”</b></blockquote>
+  <p class="warn">⚠️ Se uma métrica não possuir dados nesta execução, não invente valores. Registre que a informação não estava disponível.</p>
+</section>
+
+<section id="s31">
+  <h2><span class="n">31</span>Três perguntas para orientar sua análise</h2>
+  <div class="grid">
+    <div class="card star"><h4>1. O sistema respondeu?</h4>Use Checks e informações de falha para verificar se as condições esperadas continuaram sendo atendidas.</div>
+    <div class="card star"><h4>2. Como respondeu?</h4>Observe métricas de tempo e outras informações de desempenho disponíveis.</div>
+    <div class="card star"><h4>3. O que mudou com mais carga?</h4>Compare as execuções e procure alterações em tempos, taxas, falhas e comportamento.</div>
+  </div>
+</section>
+
+<section id="s32">
+  <h2><span class="n">32</span>Funcionamento não é a mesma coisa que desempenho</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>✅ Funcionamento</h4>
+      <p>O sistema respondeu conforme a condição que verificamos?</p>
+      <p>Exemplo: o Check esperava HTTP 200 e recebeu HTTP 200.</p>
+    </div>
+    <div class="card">
+      <h4>⚡ Desempenho</h4>
+      <p>Como o sistema se comportou enquanto atendia à carga?</p>
+      <p>Exemplo: tempos, taxas e mudanças de comportamento conforme os VUs aumentaram.</p>
+    </div>
+  </div>
+  <p class="warn">⚠️ Um sistema pode responder corretamente e, mesmo assim, apresentar lentidão. Por isso analisamos <b>Checks e métricas de desempenho</b> em conjunto.</p>
+</section>
+
+<section id="s33">
+  <h2><span class="n">33</span>Curiosidade: veja o Script</h2>
+  <p>Abra rapidamente <b>SCRIPT → View executed script</b>.</p>
+  <p>As configurações feitas visualmente no Test Builder são transformadas em um <b>script executável pelo k6</b>.</p>
+  <p>Procure valores que você configurou, como:</p>
+  <pre><code>executor: 'constant-vus'
+vus: 5
+duration: '10s'</code></pre>
+  <blockquote>💡 Você não precisa entender todo o código agora. O objetivo é perceber que existe programação por trás da configuração visual.</blockquote>
+</section>
+
+<section id="s34">
+  <h2><span class="n">34</span>E as outras abas?</h2>
+  <p>Você pode encontrar outras áreas na tela de resultados. Neste primeiro teste, não precisamos aprofundar todas elas.</p>
+  <div class="grid">
+    <div class="card"><h4>HTTP</h4>Pode apresentar informações ou recursos relacionados às requisições HTTP. Dependendo da execução, pode não haver dados específicos nessa área.</div>
+    <div class="card"><h4>Logs</h4>Útil principalmente quando scripts registram mensagens para ajudar na investigação e depuração.</div>
+    <div class="card"><h4>Browser</h4>Relacionada a testes que utilizam recursos de navegador. Não é o foco deste primeiro teste.</div>
+    <div class="card"><h4>Profile</h4>Área mais avançada para investigação de profiling. Não aprofundaremos agora.</div>
+    <div class="card"><h4>Recommendations</h4>Pode apresentar recomendações de recursos ou melhorias quando houver algo aplicável ao teste.</div>
+  </div>
+  <blockquote>🎯 Para esta atividade, concentre-se principalmente em <b>Cloud Insights, Checks e Analysis</b>.</blockquote>
+</section>
+
+<section id="s35">
+  <h2><span class="n">35</span>Registre sua evidência 📸</h2>
+  <p>Registre evidências suficientes para mostrar <b>o que foi executado e como você chegou à sua conclusão</b>.</p>
+  <div class="grid">
+    <div class="card">📸 Configuração/carga utilizada</div>
+    <div class="card">📸 Resultado dos Checks</div>
+    <div class="card">📸 Cloud Insights relevante</div>
+    <div class="card">📸 Metrics + Aggregation + gráfico analisado</div>
+  </div>
+  <blockquote>Uma boa evidência permite que outra pessoa entenda de onde saiu a sua conclusão.</blockquote>
+</section>
+
+<section id="s36">
+  <h2><span class="n">36</span>Aumente a carga e compare</h2>
+  <p>Depois do primeiro teste, repita o procedimento alterando <b>somente a quantidade de VUs</b>. Mantenha a mesma URL, duração e demais configurações para facilitar a comparação.</p>
+  <table>
+    <tr><th>Cenário</th><th>VUs</th><th>Duração</th><th>Checks/Falhas</th><th>Métrica observada</th><th>O que mudou?</th></tr>
+    <tr><td>🟢 Leve</td><td>5</td><td>10s</td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+    <tr><td>🟡 Média</td><td>10</td><td>10s</td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+    <tr><td>🔴 Maior</td><td>20</td><td>10s</td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+  </table>
+  <p>Para comparar corretamente, procure usar a <b>mesma Metric e a mesma Aggregation</b> nas três execuções.</p>
+  <blockquote>🧠 Se você comparar Avg em um teste com Max em outro, estará comparando formas diferentes de resumir os dados.</blockquote>
+</section>
+
+<section id="s37">
+  <h2><span class="n">37</span>Faça sua conclusão de QA 🧠</h2>
+  <p>Depois de comparar as execuções, responda com suas próprias palavras:</p>
+  <div class="sim">
+    <p><b>1.</b> O sistema continuou respondendo corretamente quando a carga aumentou?</p>
+    <p><b>2.</b> Apareceram falhas? Em qual cenário?</p>
+    <p><b>3.</b> Qual Metric e qual Aggregation você utilizou na comparação?</p>
+    <p><b>4.</b> O que aconteceu com o comportamento dessa métrica quando os VUs aumentaram?</p>
+    <p><b>5.</b> Qual foi a principal diferença entre os cenários?</p>
+    <p><b>6.</b> Com base nas evidências, qual é a sua conclusão sobre o comportamento observado?</p>
+  </div>
+  <p class="warn">⚠️ Evite conclusões como <b>“o sistema é perfeito”</b> ou <b>“aguenta qualquer quantidade de usuários”</b>. Seu teste representa somente as condições que você realmente executou.</p>
+  <blockquote>Uma boa conclusão de QA diz <b>o que foi testado → como foi analisado → o que foi observado → quais evidências sustentam a conclusão</b>.</blockquote>
+</section>
+
+<section id="s38">
+  <h2><span class="n">38</span>🧠 Glossário rápido</h2>
+  <details><summary>Teste de carga</summary>Verifica o comportamento da aplicação sob uma carga definida.</details>
+  <details><summary>VU</summary>Virtual User: usuário virtual utilizado para gerar carga.</details>
+  <details><summary>Request</summary>Requisição enviada para a aplicação.</details>
+  <details><summary>GET</summary>Método HTTP utilizado para solicitar um recurso.</details>
+  <details><summary>Duration</summary>Tempo durante o qual o cenário é executado.</details>
+  <details><summary>HTTP 200</summary>Código de resposta que indica que a requisição foi atendida com sucesso.</details>
+  <details><summary>Check</summary>Verificação automática de uma condição esperada.</details>
+  <details><summary>Metric</summary>Dado ou indicador que você escolhe analisar.</details>
+  <details><summary>Aggregation</summary>Forma utilizada para resumir ou apresentar os valores de uma métrica.</details>
+  <details><summary>Avg</summary>Média dos valores observados.</details>
+  <details><summary>Median</summary>Valor central quando os dados são colocados em ordem.</details>
+  <details><summary>Percentil</summary>Valor abaixo do qual fica aproximadamente determinada porcentagem das observações.</details>
+  <details><summary>HTTP Response Time</summary>Métrica relacionada ao tempo das respostas HTTP.</details>
+  <details><summary>HTTP Request Rate</summary>Taxa de requisições HTTP ao longo do tempo.</details>
+  <details><summary>HTTP Failure Rate</summary>Taxa de falhas das requisições HTTP.</details>
+  <details><summary>Iteration</summary>Uma execução do cenário de teste.</details>
+  <details><summary>Threshold</summary>Critério de aceitação usado para definir limites esperados para métricas do teste.</details>
+  <blockquote>Teste de carga não é simplesmente colocar o maior número possível de usuários. Um bom teste possui <span class="or">objetivo → cenário → carga definida → execução controlada → evidências → análise → comparação → conclusão</span>.</blockquote>
+</section>
+
+</main>
+
+<script>
+const secs = [...document.querySelectorAll('section')];
+const nav = document.getElementById('nav');
+
+secs.forEach((s) => {
+  const a = document.createElement('a');
+  a.href = '#' + s.id;
+  a.textContent = s.querySelector('h2').textContent.trim();
+  nav.appendChild(a);
+});
+
+const links = [...nav.querySelectorAll('a')];
+
+function updateScrollUI() {
+  const h = document.documentElement;
+  const maxScroll = h.scrollHeight - innerHeight;
+  document.getElementById('bar').style.width =
+    (maxScroll > 0 ? Math.min(100, (scrollY / maxScroll) * 100) : 0) + '%';
+
+  let activeIndex = 0;
+  secs.forEach((s, index) => {
+    if (s.getBoundingClientRect().top < 200) activeIndex = index;
+  });
+  links.forEach((link, index) => link.classList.toggle('on', index === activeIndex));
+}
+
+addEventListener('scroll', updateScrollUI, { passive: true });
+updateScrollUI();
+
+const vr = document.getElementById('vr');
+const vv = document.getElementById('vv');
+const dots = document.getElementById('dots');
+
+function drawVUs() {
+  vv.textContent = vr.value;
+  dots.innerHTML = '<i></i>'.repeat(Number(vr.value));
+}
+vr.addEventListener('input', drawVUs);
+drawVUs();
+
+document.querySelectorAll('.cp').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const originalText = button.textContent;
+    const textToCopy = button.nextElementSibling.textContent;
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      button.textContent = 'Copiado!';
+    } catch (error) {
+      button.textContent = 'Selecione e copie';
+      console.error('Não foi possível copiar automaticamente:', error);
+    }
+    setTimeout(() => button.textContent = originalText, 1400);
+  });
+});
+
+const checklist = [...document.querySelectorAll('#chk input')];
+const ok = document.getElementById('ok');
+
+checklist.forEach((item) => {
+  item.addEventListener('change', () => {
+    ok.textContent = checklist.every((x) => x.checked)
+      ? 'PERFEITO! Seu teste está pronto para rodar. 🚀'
+      : '';
+  });
+});
+</script>
+</body>
+</html>
